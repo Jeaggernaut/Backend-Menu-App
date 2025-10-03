@@ -7,7 +7,7 @@ import java.util.List;
 public interface IMateriaServicio {
     List<Materia> listarMaterias();
     Materia buscarMateriaPorId(Integer idMateria);
-    void guardarMateria(Materia materia);
+    Materia guardarMateria(Materia materia);
     void eliminarMateriaPorId(Integer idMateria);
 
 }

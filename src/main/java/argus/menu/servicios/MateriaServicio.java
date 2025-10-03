@@ -26,8 +26,8 @@ public class MateriaServicio implements IMateriaServicio{
     }
 
     @Override
-    public void guardarMateria(Materia materia) {
-        this.menuRepositorio.save(materia);
+    public Materia guardarMateria(Materia materia) {
+        return this.menuRepositorio.save(materia);
 
     }
 
