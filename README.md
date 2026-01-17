@@ -2,14 +2,14 @@
 
 Una aplicación backend desarrollada con **Spring Boot** para gestionar autenticación de usuarios y administración de materias.
 
-## 🚀 Características
+## Características
 
 - **Autenticación de usuarios** - Registro e inicio de sesión
 - **Gestión de materias** - Crear, leer, actualizar y eliminar materias
 - **Seguridad** - Configuración de seguridad implementada
 - **API REST** - Endpoints bien estructurados
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 - Java 21
 - Spring Boot
@@ -25,7 +25,7 @@ Una aplicación backend desarrollada con **Spring Boot** para gestionar autentic
 ```
 
 
-## 🔌 Endpoints Principales
+## Endpoints Principales
 
 ### Autenticación
 - `POST /api/auth/register` - Registro de nuevo usuario
