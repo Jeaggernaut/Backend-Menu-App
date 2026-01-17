@@ -18,18 +18,25 @@ public class MateriaControlador {
     @Autowired
     private MateriaServicio materiaServicio;
 
-    @GetMapping("/materias") //   http://localhost:8080/menu-app/materias
-    public List<Materia> obtenerMateria(){
-        List<Materia> materias = this.materiaServicio.listarMaterias();
-        logger.info("Materias obtenidas: ");
+    @GetMapping("/materias") //   http://localhost:8080/menu-app/materias?userId=1
+    public List<Materia> obtenerMateria(@RequestParam Integer userId){
+        List<Materia> materias = this.materiaServicio.listarMateriasPorUsuario(userId);
+        logger.info("Materias obtenidas para usuario " + userId + ": ");
         materias.forEach(materia -> logger.info(materia.toString()));
 
         return materias;
     }
 
-    @PostMapping("/materias")
-    public Materia agregarMateria(@RequestBody Materia materia){
-        logger.info("Proyecto a agregar: "+materia);
+    @PostMapping("/materias") //   http://localhost:8080/menu-app/materias?userId=1
+    public Materia agregarMateria(@RequestParam Integer userId, @RequestBody Materia materia){
+        materia.setUsuarioId(userId);
+        logger.info("Proyecto a agregar para usuario " + userId + ": "+materia);
         return this.materiaServicio.guardarMateria(materia);
+    }
+
+    @DeleteMapping("/materias/{idMateria}") //   http://localhost:8080/menu-app/materias/1
+    public void eliminarMateria(@PathVariable Integer idMateria){
+        logger.info("Eliminando materia con id: " + idMateria);
+        this.materiaServicio.eliminarMateriaPorId(idMateria);
     }
 }

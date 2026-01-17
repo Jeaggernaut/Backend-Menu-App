@@ -18,6 +18,10 @@ public class MateriaServicio implements IMateriaServicio{
         return this.menuRepositorio.findAll();
     }
 
+    public List<Materia> listarMateriasPorUsuario(Integer usuarioId) {
+        return this.menuRepositorio.findByUsuarioId(usuarioId);
+    }
+
     @Override
     public Materia buscarMateriaPorId(Integer idMateria) {
         Materia materia = this.menuRepositorio.findById(idMateria).orElse(null);
